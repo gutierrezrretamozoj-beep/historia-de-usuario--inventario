@@ -44,4 +44,4 @@ luego te pedira ingresar el precio del producto, debes ingresar unprecio valido 
 de lo contrario arroja error.
 
 luego te pedira la cantidad del producto, dedes ingresar una cantidad valida(solo numeros enteros)
-de lo contrario arrojara eror 
+de lo contrario arrojara error
