@@ -14,63 +14,61 @@ while True:
 
     if opcion == "1": 
         
-        continuar = "si"
-        while continuar.lower() == "si":
-            
-         nombre = input("Ingrese el nombre del producto: ").strip()
+     continuar = "si"
+     while continuar.lower() == "si":
         
-         while nombre.strip() == "" or nombre.isdigit():
-            print("Error: nombre invalido. ")
+        #  NOMBRE
+        nombre = input("Ingrese el nombre del producto: ").strip()
+        while nombre == "" or nombre.isdigit():
+            print("Error: nombre invalido.")
             nombre = input("Ingrese el nombre del producto: ").strip()
-        
-        
-        
+
+        # PRECIO
         precio = input("Ingrese el precio del producto: ")
         while not precio.replace('.', '', 1).isdigit() or float(precio) <= 0:
-           print("Error: precio invalido. ")
-           precio = input("Ingrese el precio del producto: ")
+            print("Error: precio invalido.")
+            precio = input("Ingrese el precio del producto: ")
         precio = float(precio)
-        
-        cantidad = input("Ingrese la cantidAd del priducto:  ")
-        while not cantidad.isdigit() or int(cantidad) <= 0: 
-            print("Error: cantidad invalida. ")
-            cantidad = input("Ingrese la cantidAd del priducto:  ")
+
+        #  CANTIDAD
+        cantidad = input("Ingrese la cantidad del producto: ")
+        while not cantidad.isdigit() or int(cantidad) <= 0:
+            print("Error: cantidad invalida.")
+            cantidad = input("Ingrese la cantidad del producto: ")
         cantidad = int(cantidad)
-            
+
+        #  GUARDAR
         producto = {
-                "nombre": nombre,
-                    
-                "precio": precio,  
-                    
-                "cantidad": cantidad
-                    
-                }
-            
+            "nombre": nombre,
+            "precio": precio,
+            "cantidad": cantidad
+        }
+
         inventario.append(producto)
-        continuar = input("desea agregar otro producto? (si/no): ")
-        if continuar.lower() != "si":
-                
-         print("Producto/s agregados. ")
+        print("Producto agregado correctamente.")
+
+        continuar = input("¿Desea agregar otro producto? (si/no): ")
             
     # Opcion 2, mostrar inventario. 
             
     
     elif opcion == "2":
-        for productos in inventario:
-            print("\n==== SUS PRODUCTOS AGREGADOS SON: ")
-            print("Producto:", [nombre])
-            print("Precio:", [precio])
-            print("Cantidad:", [cantidad])
-            
+        
+        if not inventario:
+            print("Inventario vacío.")
         else:
-            if not inventario:
-                print("Inventario vacio. ")
-                
+            print("\n==== SUS PRODUCTOS AGREGADOS SON: ")
+            for producto in inventario:
+                print("Producto:", producto["nombre"])
+                print("Precio:", producto["precio"])
+                print("Cantidad:", producto["cantidad"])
+                print("-" * 20)
                 
     
     # Opcion 3, calcular estadisticas. 
      
-    elif opcion == "3": 
+    elif opcion == "3":
+         
         if not inventario: 
             print("invenario vacio. ")
             
