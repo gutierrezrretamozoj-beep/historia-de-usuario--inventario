@@ -1,17 +1,19 @@
-import csv
+
 import os
+import csv
 
 data_csv = "data.csv"
 
-
-def crear_registro_csv(diccionario):
+def crear_registro_csv(diccionario, data_csv):
     existe = os.path.exists(data_csv)
+
     with open(data_csv, 'a', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=diccionario.keys())
-        if not existe: 
+
+        if not existe:
             writer.writeheader()
-            writer.writeheader(diccionario)
-            
+
+        writer.writerow(diccionario)
             
 def leer_registros_csv():
     

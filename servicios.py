@@ -16,12 +16,11 @@ def mostrar_inventario(inventario):
     for productos in inventario:
         print(f"nombre: {productos["nombre"]}  precio: {productos["precio"]}  cantidad: {productos["cantidad"]}")
         
-        
-def buscar_productos(inventario,nombre):
-    for productos in inventario:
-        if productos["nombre"].lower() == nombre.lower():
-            return productos
-        return None
+def buscar_productos(inventario, nombre):
+    for producto in inventario:
+        if producto["nombre"].lower() == nombre.lower():
+            return producto
+    return None
     
 
 def actualizar_productos(inventario, nombre, nuevo_precio=None, nueva_cantidad=None):
@@ -40,6 +39,7 @@ def eliminar_producto(inventario, nombre):
     if productos is None:
         return False
     inventario.remove(productos)
+    print("Producto eliminado correctamente.")  
     return True
 
 
